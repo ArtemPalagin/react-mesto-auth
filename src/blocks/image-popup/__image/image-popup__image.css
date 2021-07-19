@@ -1,0 +1,7 @@
+.image-popup__image{
+    max-height: 75vh;
+    max-width: 75vw;
+    /* position: relative; */
+    display: flex;
+    align-self: center;
+}

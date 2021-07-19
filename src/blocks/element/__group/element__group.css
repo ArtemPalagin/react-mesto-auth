@@ -1,0 +1,14 @@
+.element__group{
+    background-image: url(../../../images/group.svg);
+    width: 22px;
+    height: 19px;
+    display: flex;
+    color: transparent;
+    border: 0 transparent;
+    background-color: transparent;
+    padding: 0;
+    cursor: pointer;
+}
+.element__group:hover{
+    opacity: 0.6;
+}

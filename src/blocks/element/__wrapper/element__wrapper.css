@@ -1,0 +1,10 @@
+.element__wrapper{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 25px;
+    padding-left: 21px;
+    padding-bottom: 31px;
+    width: auto;
+    background-color: white;
+}

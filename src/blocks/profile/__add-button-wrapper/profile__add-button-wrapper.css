@@ -1,0 +1,27 @@
+.profile__add-button-wrapper{
+    display: flex;
+    color: transparent;
+    background-color: transparent;
+    border: 2px solid white;
+    border-radius: 2px;
+    cursor: pointer;
+}
+@media screen and (max-width: 650px){
+    .profile__add-button-wrapper{
+        margin-top: 36px;
+        padding-top: 17px;
+        padding-bottom: 17px;
+        padding-left: calc((100% - 24px)/2);
+        padding-right: calc((100% - 24px)/2);
+    }
+}
+@media screen and (min-width: 650px){
+    .profile__add-button-wrapper{
+        padding: 14px 64px;
+        margin-top: 0;
+        margin-left: auto;
+    }
+}
+.profile__add-button-wrapper:hover{
+    opacity: 0.6;
+}

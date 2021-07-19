@@ -1,0 +1,21 @@
+.element{
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+@media screen and (max-width: 320px){
+    .element{
+        border-radius: 10px;
+    }
+}
+@media screen and (min-width: 320px) and (max-width: 480px){
+    .element{
+        border-radius: calc((100vw/16) - 10px);
+    }
+}
+@media screen and (min-width: 480px){
+    .element{
+        border-radius: 10px;
+    }
+}

@@ -1,0 +1,34 @@
+.element__image{
+    margin: 0;
+    overflow: hidden;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: flex-start;
+    color: transparent;
+    border: 0 transparent;
+    background-color: transparent;
+    padding: 0;
+    cursor: pointer;
+}
+@media screen and (max-width: 480px){
+    .element__image{
+        height: calc(100vw - 55px);
+    }
+}
+@media screen and (max-width: 650px) and (min-width: 480px){
+    .element__image{
+        height: calc((100vw - 72px)/2);
+    }
+}
+@media screen and (max-width: 897px) and (min-width: 650px){
+    .element__image{
+        height: calc((100vw - 51px)/3);
+    }
+}
+@media screen and (min-width: 897px){
+    .element__image{
+        height: 282px;
+    }
+}

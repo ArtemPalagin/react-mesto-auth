@@ -1,0 +1,18 @@
+.popup{
+    margin: 0;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+}
+.popup::before{
+    content: '';
+    height: 100%;
+    width: 100%;
+    background-color: black;
+    opacity: 0.5;
+    cursor: pointer;
+}

@@ -1,0 +1,4 @@
+.form__enter{
+  display: flex;
+  flex-direction: column;
+}
