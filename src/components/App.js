@@ -74,6 +74,8 @@ class App extends React.Component {
                         this.props.history.push("/");
                     });
                 }
+            }).catch((err) => {
+                console.log(err)
             })
 
         }
