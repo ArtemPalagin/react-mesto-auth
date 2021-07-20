@@ -88,7 +88,8 @@ class App extends React.Component {
         if (!this.state.loggedIn) {
             this.setState({
                 email: email,
-                loggedIn: true
+                loggedIn: true,
+                loginEmail: '',
             })
         } else {
             this.setState({
