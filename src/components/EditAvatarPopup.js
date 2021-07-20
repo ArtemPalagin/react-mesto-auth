@@ -7,10 +7,9 @@ class EditAvatarPopup extends React.Component {
         this.avatarRef = React.createRef();
     }
     componentDidUpdate(){
-      // Я конечно сделал обнуление попапа при его открытии, но попап же закроется при 
-      // if(this.props.isOpen){
-      //   this.avatarRef.current.value = "";
-      // }
+      if(this.props.isOpen){
+        this.avatarRef.current.value = "";
+      }
       
     }
     handleSubmit = (e) => {
@@ -19,7 +18,6 @@ class EditAvatarPopup extends React.Component {
         this.props.onUpdateAvatar({
           avatar: this.avatarRef.current.value
         });
-        this.avatarRef.current.value = "";
       }
     render() {
         return (
