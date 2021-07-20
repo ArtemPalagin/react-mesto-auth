@@ -14,7 +14,7 @@ import Register from './Register.js';
 import ProtectedRoute from './ProtectedRoute.js'
 import { CurrentUserContext } from '../contexts/CurrentUserContext.js';
 import { Route, Switch, withRouter } from 'react-router-dom';
-import * as mestpAuth from '../mestoAuth.js';
+import * as mestpAuth from '../utils/mestoAuth.js';
 
 class App extends React.Component {
     constructor(props) {

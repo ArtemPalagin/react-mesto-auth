@@ -1,6 +1,6 @@
 import React from 'react';
 import Form from './Form.js';
-import * as mestpAuth from '../mestoAuth.js';
+import * as mestpAuth from '../utils/mestoAuth.js';
 import { withRouter } from 'react-router-dom';
 
 class Login extends React.Component {
