@@ -1,6 +1,5 @@
 import React from 'react';
 import Form from './Form.js';
-import * as mestpAuth from '../utils/mestoAuth.js';
 import { Link, withRouter } from 'react-router-dom';
 
 class Register extends React.Component {
@@ -25,17 +24,8 @@ class Register extends React.Component {
     if (!this.state.password || !this.state.email) {
       return
     }
+    this.props.registrationRequest(this.state.password, this.state.email);
 
-    mestpAuth.register(this.state.password, this.state.email).then((resp) => {
-    
-      this.setState({ email: '', password: '' }, () => {
-        this.props.suggestLogin(resp.data.email);
-        this.props.infoTooltipOpen(true);
-        this.props.history.push('/sign-in');
-      })}).catch((err) => {
-      this.props.infoTooltipOpen(false);
-      console.log(err);
-    });
   }
   render() {
     return (
