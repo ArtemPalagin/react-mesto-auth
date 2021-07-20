@@ -17,7 +17,6 @@ class AddPlacePopup extends React.Component {
     }
     handleSubmit = (e) => {
         e.preventDefault();
-        // debugger
         this.props.onAddPlace({
             text: this.state.text,
             link: this.state.link

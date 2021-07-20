@@ -130,7 +130,6 @@ class App extends React.Component {
         } else {
             api.addLike(card._id).then(
                 (newCard) => {
-
                     this.setState((state) => ({cards: state.cards.map((c) => c._id === card._id ? newCard : c)}))
                 }).catch((err) => {
                     console.log(err);
@@ -140,7 +139,6 @@ class App extends React.Component {
     handleCardDelete = (card) => {
         api.deliteCard(card._id).then(
             () => {
-                // debugger
                 const newCards = this.state.cards.filter((c) => c._id === card._id ? false : true);
                 this.setState({ cards: newCards })
             }).catch((err) => {
@@ -161,7 +159,6 @@ class App extends React.Component {
         this.setState({ isEditAvatarPopupOpen: true });
     };
     handleEditProfileClick = () => {
-        // debugger
         this.setState({ isEditProfilePopupOpen: true });
     };
     handleAddPlaceClick = () => {
