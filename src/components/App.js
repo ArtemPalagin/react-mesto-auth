@@ -69,11 +69,10 @@ class App extends React.Component {
         }
     }
     suggestLogin = (email) => {
-        this.setState({loginEmail: email})
+        this.setState({ loginEmail: email })
     }
 
-    handleLogin = ({email} = {}) => {
-        // e.preventDefault();
+    handleLogin = ({ email } = {}) => {
         if (!this.state.loggedIn) {
             this.setState({
                 email: email,
@@ -83,7 +82,7 @@ class App extends React.Component {
             this.setState({
                 loggedIn: false,
                 email: '',
-            }, () => {localStorage.removeItem('token');})
+            }, () => { localStorage.removeItem('token'); })
         }
 
     }
