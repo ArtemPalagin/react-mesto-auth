@@ -25,22 +25,25 @@ class Login extends React.Component {
     e.preventDefault()
 
     const {email, password} = this.state
+    this.loginRequest({email, password})
+  }
+  loginRequest = ({email, password}) => {
 
     mestpAuth.authorize(password, email).then((data) => {
       if (data.token) {
-        localStorage.setItem('token', data.token);
-        this.setState({ email: '', password: '' }, () => {
-          this.props.handleLogin({email: email});
+          localStorage.setItem('token', data.token);
+
+          this.props.handleLogin({ email: email });
           this.props.history.push('/');
-        })
       } else {
-        throw new Error();
+          throw new Error();
       }
-    })
+  })
       .catch((err) => {
-        console.log(err)
+          console.log(err)
       })
-  };
+        
+  }
 
 render(){
   return (
