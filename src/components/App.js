@@ -130,8 +130,8 @@ class App extends React.Component {
         } else {
             api.addLike(card._id).then(
                 (newCard) => {
-                    const newCards = this.state.cards.map((c) => c._id === card._id ? newCard : c);
-                    this.setState({ cards: newCards })
+
+                    this.setState((state) => ({cards: state.cards.map((c) => c._id === card._id ? newCard : c)}))
                 }).catch((err) => {
                     console.log(err);
                 })
