@@ -62,6 +62,23 @@ class App extends React.Component {
             console.log(err);
         });
     }
+    loginRequest = (password ,email) => {
+
+        mestpAuth.authorize(password, email).then((data) => {
+          if (data.token) {
+              localStorage.setItem('token', data.token);
+    
+              this.handleLogin({ email: email });
+              this.props.history.push('/');
+          } else {
+              throw new Error();
+          }
+      })
+          .catch((err) => {
+              console.log(err)
+          })
+            
+      }
     tokenCheck = () => {
         if (localStorage.getItem('token')) {
             const jwt = localStorage.getItem('token');
@@ -195,7 +212,7 @@ class App extends React.Component {
                                 <Register registrationRequest={this.registrationRequest} />
                             </Route>
                             <Route path="/sign-in">
-                                <Login handleLogin={this.handleLogin} suggestedEmail={this.state.loginEmail}/>
+                                <Login loginRequest={this.loginRequest} suggestedEmail={this.state.loginEmail}/>
                             </Route>
 
                             <ProtectedRoute

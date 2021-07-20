@@ -1,6 +1,5 @@
 import React from 'react';
 import Form from './Form.js';
-import * as mestpAuth from '../utils/mestoAuth.js';
 import { withRouter } from 'react-router-dom';
 
 class Login extends React.Component {
@@ -25,25 +24,9 @@ class Login extends React.Component {
     e.preventDefault()
 
     const {email, password} = this.state
-    this.loginRequest({email, password})
+    this.props.loginRequest(password ,email)
   }
-  loginRequest = ({email, password}) => {
 
-    mestpAuth.authorize(password, email).then((data) => {
-      if (data.token) {
-          localStorage.setItem('token', data.token);
-
-          this.props.handleLogin({ email: email });
-          this.props.history.push('/');
-      } else {
-          throw new Error();
-      }
-  })
-      .catch((err) => {
-          console.log(err)
-      })
-        
-  }
 
 render(){
   return (
