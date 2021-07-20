@@ -6,6 +6,13 @@ class EditAvatarPopup extends React.Component {
         super(props);
         this.avatarRef = React.createRef();
     }
+    componentDidUpdate(){
+      // Я конечно сделал обнуление попапа при его открытии, но попап же закроется при 
+      // if(this.props.isOpen){
+      //   this.avatarRef.current.value = "";
+      // }
+      
+    }
     handleSubmit = (e) => {
         e.preventDefault();
       
@@ -14,14 +21,10 @@ class EditAvatarPopup extends React.Component {
         });
         this.avatarRef.current.value = "";
       }
-      closePopup = () => {
-        this.props.closeAllPopups();
-        this.avatarRef.current.value = "";
-      }
     render() {
         return (
-            <PopupWithForm onSubmit={this.handleSubmit} buttonText="Сохранить" name="avatar" title="Обновить аватар" isOpen={this.props.isOpen} closeAllPopups={this.closePopup}>
-                <input className="popup__entry" ref={this.avatarRef} id="avatar-input" type="text" placeholder="ссылка на фото" name="firstname" required />
+            <PopupWithForm onSubmit={this.handleSubmit} buttonText="Сохранить" name="avatar" title="Обновить аватар" isOpen={this.props.isOpen} closeAllPopups={this.props.closeAllPopups}>
+                <input className="popup__entry" ref={this.avatarRef} id="avatar-input" type="url" placeholder="ссылка на фото" name="firstname" required />
                 <span className="avatar-input-error popup__span popup__input-error"></span>
             </PopupWithForm>
         )
