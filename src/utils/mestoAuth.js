@@ -10,7 +10,7 @@ export const register = (password, email) => {
     body: JSON.stringify({password, email})
   })
   .then((response) => {
-    if (response.status <= 400){
+    if (response.ok){
       return response.json();
     } else {
       throw new Error()
@@ -28,7 +28,7 @@ export const authorize = (password, email) => {
     body: JSON.stringify({password, email})
   })
   .then((response) => {
-    if (response.status <= 400){
+    if (response.ok){
       return response.json();
     } else {
       throw new Error()
@@ -46,7 +46,7 @@ export const getContent = (token) => {
     }
   })
   .then((response) => {
-    if (response.status <= 400){
+    if (response.ok){
       return response.json();
     } else {
       throw new Error()
