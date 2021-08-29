@@ -59,6 +59,7 @@ class App extends React.Component {
               localStorage.setItem('token', data.token);
     
               this.handleLogin({ email: email });
+              this.loadBasicData()
               this.props.history.push('/');
           } else {
               throw new Error();
@@ -91,8 +92,11 @@ class App extends React.Component {
             console.log(err)
         })
 
+        this.loadBasicData(profileProm)
+    }
+    loadBasicData(profileProm) {
         Promise.all([
-            profileProm,
+            profileProm || api.getInitialProfile(),
             api.getInitialCards()
         ])
             .then(([profile, card]) => {
