@@ -74,8 +74,10 @@ class App extends React.Component {
         if (!jwt) {
             return
         }
+        
+        const profileProm = mestoAuth.getContent(jwt)
 
-        mestoAuth.getContent(jwt).then((res) => {
+        profileProm.then((res) => {
             if (res) {
 
                 this.setState({
@@ -90,7 +92,7 @@ class App extends React.Component {
         })
 
         Promise.all([
-            api.getInitialProfile(),
+            profileProm,
             api.getInitialCards()
         ])
             .then(([profile, card]) => {
