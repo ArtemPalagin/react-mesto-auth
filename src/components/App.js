@@ -80,22 +80,24 @@ class App extends React.Component {
             
       }
     tokenCheck = () => {
-        if (localStorage.getItem('token')) {
-            const jwt = localStorage.getItem('token');
-            mestoAuth.getContent(jwt).then((res) => {
-                if (res) {
-                    this.setState({
-                        loggedIn: true,
-                        email: res.data.email
-                    }, () => {
-                        this.props.history.push("/");
-                    });
-                }
-            }).catch((err) => {
-                console.log(err)
-            })
-
+        const jwt = localStorage.getItem('token');
+        if (!jwt) {
+            return
         }
+
+        mestoAuth.getContent(jwt).then((res) => {
+            if (res) {
+
+                this.setState({
+                    loggedIn: true,
+                    email: res.data.email
+                }, () => {
+                    this.props.history.push("/");
+                });
+            }
+        }).catch((err) => {
+            console.log(err)
+        })
     }
     suggestLogin = (email) => {
         this.setState({ loginEmail: email })
