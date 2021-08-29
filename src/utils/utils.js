@@ -4,3 +4,9 @@ export const handleStatus = resp => {
     }
     return Promise.reject(resp)
 }
+export const findToken = () => {
+    if(localStorage.getItem('token')){
+        return localStorage.getItem('token');
+    }
+    return null;
+}
