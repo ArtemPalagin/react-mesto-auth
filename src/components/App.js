@@ -41,16 +41,6 @@ class App extends React.Component {
 
     componentDidMount() {
         this.tokenCheck();
-        Promise.all([
-            api.getInitialProfile(),
-            api.getInitialCards()
-        ])
-            .then(([profile, card]) => {
-                this.setState({ currentUser: profile, cards: card, ready: true })
-            })
-            .catch((err) => {
-                console.log(err);
-            })
     }
     registrationRequest = (password, email) => {
         mestoAuth.register(password, email).then((resp) => {
@@ -98,6 +88,17 @@ class App extends React.Component {
         }).catch((err) => {
             console.log(err)
         })
+
+        Promise.all([
+            api.getInitialProfile(),
+            api.getInitialCards()
+        ])
+            .then(([profile, card]) => {
+                this.setState({ currentUser: profile, cards: card, ready: true })
+            })
+            .catch((err) => {
+                console.log(err);
+            })
     }
     suggestLogin = (email) => {
         this.setState({ loginEmail: email })
