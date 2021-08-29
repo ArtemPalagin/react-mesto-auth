@@ -18,7 +18,8 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "deploy": "npm run build &&  \"c:\\path\\to\\putty\\directory\\pscp.exe\" -i \"c:\\Users\\79030\\.ssh\\p.ppk\" -r ./build/* artem_plg@84.201.156.226:/home/artem_plg/mesto-frontend"
   },
   "eslintConfig": {
     "extends": [
