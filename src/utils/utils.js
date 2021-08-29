@@ -6,7 +6,7 @@ export const handleStatus = resp => {
 }
 export const findToken = () => {
     if(localStorage.getItem('token')){
-        return localStorage.getItem('token');
+        return "Bearer " + localStorage.getItem('token');
     }
     return null;
 }
