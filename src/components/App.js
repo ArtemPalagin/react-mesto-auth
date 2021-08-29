@@ -14,7 +14,7 @@ import Register from './Register.js';
 import ProtectedRoute from './ProtectedRoute.js'
 import { CurrentUserContext } from '../contexts/CurrentUserContext.js';
 import { Route, Switch, withRouter } from 'react-router-dom';
-import * as mestpAuth from '../utils/mestoAuth.js';
+import * as mestoAuth from '../utils/mestoAuth.js';
 
 class App extends React.Component {
     constructor(props) {
@@ -53,7 +53,7 @@ class App extends React.Component {
             })
     }
     registrationRequest = (password, email) => {
-        mestpAuth.register(password, email).then((resp) => {
+        mestoAuth.register(password, email).then((resp) => {
             this.suggestLogin(resp.data.email);
             this.infoTooltipOpen(true);
             this.props.history.push('/sign-in');
@@ -64,7 +64,7 @@ class App extends React.Component {
     }
     loginRequest = (password ,email) => {
 
-        mestpAuth.authorize(password, email).then((data) => {
+        mestoAuth.authorize(password, email).then((data) => {
           if (data.token) {
               localStorage.setItem('token', data.token);
     
@@ -82,7 +82,7 @@ class App extends React.Component {
     tokenCheck = () => {
         if (localStorage.getItem('token')) {
             const jwt = localStorage.getItem('token');
-            mestpAuth.getContent(jwt).then((res) => {
+            mestoAuth.getContent(jwt).then((res) => {
                 if (res) {
                     this.setState({
                         loggedIn: true,
