@@ -7,9 +7,9 @@ import binBottom from '../images/bin-bottom.svg'
 function Card(props) {
     const contextType = React.useContext(CurrentUserContext);
 
-    if (!props.card || !props.card.likes) {
-        debugger
-    }
+    // if (!props.card || !props.card.likes) {
+    //     debugger
+    // }
 
     const handleLikeClick = () => {
         props.onCardLike(props.card, contextType._id);
@@ -26,7 +26,7 @@ function Card(props) {
             <div className="element__wrapper">
                 <h3 className="element__text">{props.card.name}</h3>
                 <div className="element__group-wrapper">
-                    <button onClick={handleLikeClick} className={`element__group ${(props.card.likes.some(i => i._id === contextType._id)) ? ("element__group_black") : ("")}`} type="button"></button>
+                    <button onClick={handleLikeClick} className={`element__group ${(props.card.likes.some(i => i === contextType._id)) ? ("element__group_black") : ("")}`} type="button"></button>
                     <p className="element__group-number">{props.card.likes.length}</p>
                 </div>
             </div>

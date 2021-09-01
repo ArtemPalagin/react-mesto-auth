@@ -100,7 +100,7 @@ class App extends React.Component {
             api.getInitialCards()
         ])
             .then(([profile, card]) => {
-                this.setState({email: profile.user.email, currentUser: profile.user, cards: card, ready: true })
+                this.setState({email: profile.email, currentUser: profile, cards: card, ready: true })
             })
             .catch((err) => {
                 console.log(err);
@@ -127,7 +127,7 @@ class App extends React.Component {
     }
 
     handleCardLike = (card, profileId) => {
-        const isLiked = card.likes.some(i => i._id === profileId);
+        const isLiked = card.likes.some(i => i === profileId);
         if (isLiked) {
             api.deliteLike(card._id).then(
                 (newCard) => {
@@ -149,6 +149,7 @@ class App extends React.Component {
         api.deliteCard(card._id).then(
             () => {
                 const newCards = this.state.cards.filter((c) => c._id === card._id ? false : true);
+                debugger
                 this.setState({ cards: newCards })
             }).catch((err) => {
                 console.log(err);
