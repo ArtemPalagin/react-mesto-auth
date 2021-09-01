@@ -44,7 +44,7 @@ class App extends React.Component {
     }
     registrationRequest = (password, email) => {
         mestoAuth.register(password, email).then((resp) => {
-            this.suggestLogin(resp.data.email);
+            this.suggestLogin(resp.email);
             this.infoTooltipOpen(true);
             this.props.history.push('/sign-in');
         }).catch((err) => {
@@ -83,7 +83,7 @@ class App extends React.Component {
 
                 this.setState({
                     loggedIn: true,
-                    email: res.data.email
+                    email: res.email
                 }, () => {
                     this.props.history.push("/");
                 });
@@ -100,7 +100,7 @@ class App extends React.Component {
             api.getInitialCards()
         ])
             .then(([profile, card]) => {
-                this.setState({ currentUser: profile, cards: card, ready: true })
+                this.setState({email: profile.user.email, currentUser: profile.user, cards: card, ready: true })
             })
             .catch((err) => {
                 console.log(err);

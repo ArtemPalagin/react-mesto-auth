@@ -7,6 +7,10 @@ import binBottom from '../images/bin-bottom.svg'
 function Card(props) {
     const contextType = React.useContext(CurrentUserContext);
 
+    if (!props.card || !props.card.likes) {
+        debugger
+    }
+
     const handleLikeClick = () => {
         props.onCardLike(props.card, contextType._id);
     }
@@ -14,7 +18,7 @@ function Card(props) {
     return (
         <div className="element">
             <button className="element__image" onClick={() => props.onCardClick(props.card.link, props.card.name)} style={{ backgroundImage: `url(${props.card.link})` }} type="button"></button>
-            {(props.card.owner._id === contextType._id) ? (
+            {(props.card.owner === contextType._id) ? (
                 <button onClick={() => props.onCardDelete(props.card)} className="element__delete-button" type="button">
                     <img className="element__bin_top" src={binTop} alt="Крашка мусорки (Удалить)" />
                     <img className="element__bin_bottom" src={binBottom} alt="Бочонок мусорки (часть кнопки удаления карточки)" />
